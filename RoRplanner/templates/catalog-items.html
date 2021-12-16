@@ -1,0 +1,64 @@
+{% extends "__base__.html" %}
+{% load static %}
+{% block title %}Items{% endblock %}
+{% block content %}
+
+<div class="p-3 m-4 view-height d-flex-wrap" style="background-color:#aaaab0">
+<table class="table d-flex flex-wrap">
+    <tr>
+        <th>Common</th>
+            {% for item in items_list %}
+            {% if item.rarity == 1 %}
+                <td><a href="{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:110px; background-color:#ffffff; border:1px solid black"></a></td>
+            {% endif %}
+            {% endfor %}
+    </tr>
+
+    <tr>
+        <th>Uncommon</th>
+            {% for item in items_list %}
+            {% if item.rarity == 2 %}
+                <td><a href="{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:110px; background-color:#9be895; border:1px solid black"></a></td>
+            {% endif %}
+            {% endfor %}
+    </tr>
+
+    <tr>
+        <th>Legendary</th>
+            {% for item in items_list %}
+            {% if item.rarity == 3 %}
+                <td><a href="{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:110px; background-color:#e5847b; border:1px solid black"></a></td>
+            {% endif %}
+            {% endfor %}
+    </tr>
+
+    <tr>
+        <th>Boss</th>
+            {% for item in items_list %}
+            {% if item.rarity == 4 %}
+                <td><a href="{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:110px; background-color:#fccc28; border:1px solid black"></a></td>
+            {% endif %}
+            {% endfor %}
+    </tr>
+
+    <tr>
+        <th>Lunar</th>
+            {% for item in items_list %}
+            {% if item.rarity == 5 %}
+                <td><a href="{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:110px; background-color:#48c8f6; border:1px solid black"></a></td>
+            {% endif %}
+            {% endfor %}
+    </tr>
+
+    <tr>
+        <th>Equipment</th>
+            {% for item in items_list %}
+            {% if item.rarity == 6 %}
+                <td><a href="{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:110px; background-color:#ff742b; border:1px solid black"></a></td>
+            {% endif %}
+            {% endfor %}
+    </tr>
+
+</table>
+</div>
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends "__base__.html" %}
+{% load static %}
+{% block title %}Survivors{% endblock %}
+{% block content %}
+
+<div class="p-3 m-4 view-height d-flex-wrap" style="background-color:#aaaab0">
+<table class="table d-flex flex-wrap">
+    {% for survivor in survivors_list %}
+        <td><a href="{{ survivor.name }}"> <img src="{% static ""%}images/{{ survivor.image }}" title="{{ survivor.name }}" alt="{{ survivor.name }}" style="width:200px; background-color:#ffffff; border:1px solid black"></a></td>
+    {% endfor %}
+</table>
+</div>
+{% endblock content %}

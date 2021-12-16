@@ -1,0 +1,30 @@
+{% extends "__base__.html" %}
+{% load static %}
+{% block title %}Builds{% endblock %}
+{% block content %}
+
+<div class="p-3 m-4 view-height d-flex-wrap" style="background-color:#aaaab0">
+<table class="table d-flex flex-wrap">
+
+{% for build in builds_list %}
+    <tr>
+        <th><a href="{{ build.id }}">{{ build.name }}</a></th>
+            {% for survivor in build.survivors.all %}
+                <td><a href="/survivors/{{ survivor.name }}"> <img src="{% static ""%}images/{{ survivor.image }}" title="{{ survivor.name }}" alt="{{ survivor.name }}" style="width:50px; background-color:#9be895; border:1px solid black"></a></td>
+            {% endfor %}
+
+            <tr>
+            {% for item in build.items.all %}
+                <td><a href="/items/{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:50px; background-color:#9be895; border:1px solid black"></a></td>
+            {% endfor %}
+            <tr>
+    </tr>
+{% endfor %}
+
+    <tr>
+        <td><a href="add"> <img src="{% static ""%}images/add-new.png" title="Add build" alt="Add build" style="width:50px; background-color:#9be895; border:1px solid black"></a> Add new build</td>
+    </tr>
+
+</table>
+</div>
+{% endblock content %}

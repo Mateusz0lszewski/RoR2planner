@@ -1,0 +1,67 @@
+{% extends "__base__.html" %}
+{% load static %}
+{% block title %}{{ survivor.name }}{% endblock %}
+{% block content %}
+
+    <table class="table d-flex">
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    <img src="{% static ""%}images/{{ survivor.image }}" title="{{ survivor.name }}" alt="{{ survivor.name }}" style="width:110px; background-color:#9be895; border:1px solid black">
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    {{ survivor.name }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    {{ survivor.description }}
+                </td>
+            </tr>
+
+            {% for a in ability %}
+            <tr class="d-flex">
+                <th>{{ a.get_type_display }}</th>
+                <td class="col-6">
+                    {{ a }}
+                </td>
+            </tr>
+            {% endfor %}
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    Health: {{ survivor.health }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    Health regen: {{ survivor.health_regen }}/s
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    Damage: {{ survivor.damage }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    Speed: {{ survivor.speed }} m/s
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    Armor: {{ survivor.armor }}
+                </td>
+            </tr>
+
+    </table>
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock title %} | Risk of Rain 2 planner</title>
+    <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+
+<body>
+{% if user.is_authenticated %}
+    <h6><p style="text-align:right;"><a href="{% url 'logout' %}">Logout {{ user.name }}</a></p></h6>
+
+{% else %}
+    <h6><p style="text-align:right;"><a href="{% url 'login' %}">Login</a>
+    <a href="/register">Sign Up</a></p></h6>
+{% endif %}
+
+<h6><p style="text-align:right;"></p></h6>
+    <header class="page-header">
+        <nav class="navbar navbar-expand-lg justify-content-around">
+            <a href="/" class="navbar-brand">
+                <h1>Risk of Rain 2 planner</h1>
+            </a>
+            <ul class="nav nounderline">
+                <li class="nav-item ml-4">
+                    <h3><a class="nav-link disabled" href="/items/">Items</a></h3>
+                </li>
+                <li class="nav-item ml-4">
+                    <h3><a class="nav-link disabled" href="/survivors/">Survivors</a></h3>
+                </li>
+                <li class="nav-item ml-4">
+                    <h3><a class="nav-link disabled" href="/builds">Builds</a></h3>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+{% block content %}{% endblock content %}
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>

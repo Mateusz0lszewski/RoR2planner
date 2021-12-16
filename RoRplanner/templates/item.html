@@ -1,0 +1,32 @@
+{% extends "__base__.html" %}
+{% load static %}
+{% block title %}{{ item.name }}{% endblock %}
+{% block content %}
+
+    <table class="table d-flex">
+            <tr class="d-flex">
+                <td class="col-7">
+                    {{ item.name }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    {{ item.get_rarity_display }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    {{ item.description }}
+                </td>
+            </tr>
+
+             <tr class="d-flex">
+                <td class="col-7">
+                    <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:110px; background-color:#9be895; border:1px solid black">
+                </td>
+            </tr>
+    </table>
+
+{% endblock content %}
