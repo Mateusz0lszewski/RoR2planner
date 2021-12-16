@@ -21,7 +21,7 @@ class LoginForm(forms.Form):
 
 class AddBuildForm(forms.ModelForm):
     name = forms.CharField(max_length=255)
-    description = forms.Textarea()
+    description = forms.CharField(widget=forms.Textarea)
     survivors = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=Survivor.objects.all(), to_field_name='name')
     required_items = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=Item.objects.all(), to_field_name='name')
     recommended_items = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple, queryset=Item.objects.all(), to_field_name='name')

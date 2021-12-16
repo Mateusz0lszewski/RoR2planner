@@ -1,0 +1,44 @@
+{% extends "__base__.html" %}
+{% load static %}
+{% block title %}{{ monster.name }}{% endblock %}
+{% block content %}
+    <table class="table d-flex">
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    <img src="{% static ""%}images/{{ monster.image }}" title="{{ monster.name }}" alt="{{ monster.name }}" style="width:110px; background-color:#9be895; border:1px solid black">
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    {{ monster.name }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    {{ monster.description }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    Health: {{ monster.health }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    Damage: {{ monster.damage }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    Speed: {{ monster.speed }} m/s
+                </td>
+            </tr>
+
+    </table>
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends "__base__.html" %}
+{% load static %}
+{% block title %}{{ ability.name }}{% endblock %}
+{% block content %}
+    <table class="table d-flex">
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    <img src="{% static ""%}images/{{ ability.image }}" title="{{ ability.name }}" alt="{{ ability.name }}" style="width:110px; background-color:#9be895; border:1px solid black">
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    {{ ability.name }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    {{ ability.description }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    Proc coefficient: {{ ability.proc_coefficient }}
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    Cooldown: {{ ability.cooldown }}s
+                </td>
+            </tr>
+
+            <tr class="d-flex">
+                <td class="col-7">
+                    Type: {{ ability.type }}
+                </td>
+            </tr>
+
+    </table>
+{% endblock content %}

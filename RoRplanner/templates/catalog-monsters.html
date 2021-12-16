@@ -1,0 +1,10 @@
+{% extends "__base__.html" %}
+{% load static %}
+{% block title %}Monsters{% endblock %}
+{% block content %}
+<table class="table d-flex flex-wrap">
+    {% for monster in monsters_list %}
+        <td><a href="{{ monster.name }}"> <img src="{% static ""%}images/{{ monster.image }}" title="{{ monster.name }}" alt="{{ monster.name }}" style="width:200px; background-color:#ffffff; border:1px solid black"></a></td>
+    {% endfor %}
+</table>
+{% endblock content %}

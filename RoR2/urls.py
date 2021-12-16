@@ -23,9 +23,13 @@ urlpatterns = [
     path('items/<str:name>/', ItemView.as_view()),
     path('survivors/', CatalogSurvivorsView.as_view()),
     path('survivors/<str:name>/', SurvivorView.as_view()),
+    path('survivors/<str:s_name>/<str:a_name>', AbilityView.as_view()),
+    path('monsters/', CatalogMonsterView.as_view()),
+    path('monsters/<str:name>/', MonsterView.as_view()),
     path('builds/', CatalogBuildsView.as_view()),
     path('builds/add/', AddBuildView.as_view()),
     path('builds/<int:id>/', BuildView.as_view()),
+    path('builds/<int:build_id>/edit/', EditBuildView.as_view()),
     path('register/', RegisterView.as_view()),
     path('', include('django.contrib.auth.urls')),
 ]

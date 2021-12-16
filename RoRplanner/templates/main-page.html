@@ -2,4 +2,40 @@
 {% load static %}
 {% block title %}Main Page{% endblock %}
 {% block content %}
+    <h1>Try this build!</h1>
+Creator: {{ random_build.creator }}, Created: {{ random_build.created }}
+<table class="table d-flex">
+    <tr>
+        <th>{{ random_build.name }}</th>
+            <td>{{ random_build.description }}</td>
+        <th>Recommended Survivors:</th>
+        {% for survivor in random_build.survivors.all %}
+            <td><a href="/survivors/{{ survivor.name }}"> <img src="{% static ""%}images/{{ survivor.image }}" title="{{ survivor.name }}" alt="{{ survivor.name }}" style="width:50px; background-color:#9be895; border:1px solid black"></a></td>
+        {% endfor %}
+    </tr>
+</table>
+
+<table class="table d-flex">
+
+    <tr>
+        <th>Must have:</th>
+        {% for item in must_have %}
+            <td><a href="/items/{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:50px; background-color:#9be895; border:1px solid black"></a></td>
+        {% endfor %}
+    <tr>
+
+    <tr>
+        <th>Recommended:</th>
+        {% for item in recommended %}
+            <td><a href="/items/{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:50px; background-color:#9be895; border:1px solid black"></a></td>
+        {% endfor %}
+    <tr>
+
+    <tr>
+        <th>Always avoid:</th>
+        {% for item in always_avoid %}
+            <td><a href="/items/{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:50px; background-color:#9be895; border:1px solid black"></a></td>
+        {% endfor %}
+    <tr>
+</table>
 {% endblock content %}

@@ -2,7 +2,6 @@
 {% load static %}
 {% block title %}{{ survivor.name }}{% endblock %}
 {% block content %}
-
     <table class="table d-flex">
 
             <tr class="d-flex">
@@ -27,7 +26,7 @@
             <tr class="d-flex">
                 <th>{{ a.get_type_display }}</th>
                 <td class="col-6">
-                    {{ a }}
+                    <a href="{{ a.name }}"><img src="{% static ""%}images/{{ a.image }}" title="{{ a.name }}" alt="{{ a.name }}" style="width:110px; background-color:#9be895; border:1px solid black"></a>
                 </td>
             </tr>
             {% endfor %}
@@ -63,5 +62,4 @@
             </tr>
 
     </table>
-
 {% endblock content %}

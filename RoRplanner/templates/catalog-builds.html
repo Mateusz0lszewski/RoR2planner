@@ -2,23 +2,30 @@
 {% load static %}
 {% block title %}Builds{% endblock %}
 {% block content %}
-
-<div class="p-3 m-4 view-height d-flex-wrap" style="background-color:#aaaab0">
 <table class="table d-flex flex-wrap">
 
 {% for build in builds_list %}
     <tr>
-        <th><a href="{{ build.id }}">{{ build.name }}</a></th>
-            {% for survivor in build.survivors.all %}
-                <td><a href="/survivors/{{ survivor.name }}"> <img src="{% static ""%}images/{{ survivor.image }}" title="{{ survivor.name }}" alt="{{ survivor.name }}" style="width:50px; background-color:#9be895; border:1px solid black"></a></td>
-            {% endfor %}
-
+    <th><a href="{{ build.id }}">{{ build.name }}</a></th>
+        {% for survivor in build.survivors.all %}
+            <td><a href="/survivors/{{ survivor.name }}"> <img src="{% static ""%}images/{{ survivor.image }}" title="{{ survivor.name }}" alt="{{ survivor.name }}" style="width:60px; background-color:#9be895; border:1px solid black"></a></td>
+        {% endfor %}
+        <tr>
             <tr>
-            {% for item in build.items.all %}
-                <td><a href="/items/{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }}" alt="{{ item.name }}" style="width:50px; background-color:#9be895; border:1px solid black"></a></td>
+            <th>{{ build.description }}</th>
+            {% for item in build.required_items.all %}
+                <td><a href="/items/{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }} || REQUIRED" alt="{{ item.name }}" style="width:80px; background-color:#ffffff; border:3px solid #08a615"></a></td>
             {% endfor %}
-            <tr>
+            {% for item in build.recommended_items.all %}
+                <td><a href="/items/{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }} || RECOMMENDED" alt="{{ item.name }}" style="width:80px; background-color:#ffffff; border:3px solid #de8007"></a></td>
+            {% endfor %}
+            {% for item in build.always_avoid_items.all %}
+                <td><a href="/items/{{ item.name }}"> <img src="{% static ""%}images/{{ item.image }}" title="{{ item.name }} || ALWAYS AVOID" alt="{{ item.name }}" style="width:80px; background-color:#ffffff; border:3px solid #ef2b2b"></a></td>
+            {% endfor %}
+            </tr>
+        </tr>
     </tr>
+
 {% endfor %}
 
     <tr>
@@ -26,5 +33,4 @@
     </tr>
 
 </table>
-</div>
 {% endblock content %}
